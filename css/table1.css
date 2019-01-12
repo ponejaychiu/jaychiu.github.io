@@ -1,0 +1,29 @@
+hr{background-color: gainsboro;border: none;height: 2px;}
+a{text-decoration: none;}
+.pagebutton{display: inline-block;font-size: 15px;font-family: "宋体";}
+.center{position: relative;left: 410px;width: 377px;}
+.navbar{background-color: gainsboro;}
+.navbar-row{position: relative;left: 70px;padding: 5px;}
+.main-content{border: 1px solid red;padding: 5px;}
+.middle-content{display: inline-block;border: 1px solid red;padding: 5px;}
+.left-column{float: left;margin-left: 100px;padding: 0px;width: 154px;border: 1px solid gainsboro;}
+.left-tab-1{background-color: gainsboro;padding: 5px;width: 144px;margin: auto;position: relative;}
+.title{background-color: gainsboro;width: 50px;margin: auto;}
+.left-tab-2{background-color: whitesmoke;width: 144px;margin: auto;padding: 5px;position: relative;}
+.design{margin: auto;background: auto;padding: 1px;position: relative;left: -4px;}
+.design-name{width: 152px;margin: auto;}
+.design-name-fold{margin-left: 30px;}
+#cate1,#cate3,#cate5,#cate7,#cate9{background-color: white;width: 150px;}
+#cate2,#cate4,#cate6,#cate8,#cate10{background-color: whitesmoke;width: 150px;}
+.center-column{float: left;margin-left: 30px;padding: 10px;border: 5px solid red;background-color: black;}
+.center-tab{border: 5px solid yellow;padding: 20px;background-color: darkslategray;}
+.center-tab-list{border: 5px solid blue;padding: 10px;background-color: red;}
+.center-tab-list-name{border: 5px solid green;padding: 20px;background-color: blue;}
+.right-column{float: left;margin-left: 30px;padding: 100px;border: 5px solid red;background-color: black;}
+.right-tab{border: 5px solid yellow;padding: 50px;background-color: darkslategray;}
+.right-tab-list{border: 5px solid blue;padding: 25px;background-color: red;}
+.right-tab-list-name{border: 5px solid green;padding: 5px;background-color: blue;}
+.homepage{display: inline-block;position: relative;left: 40%; }
+.lastpage{display: inline-block;float: left;position: relative;left: 10%;}
+.nextpage{display: inline-block;float: right;position: relative;right: 10%;}
+

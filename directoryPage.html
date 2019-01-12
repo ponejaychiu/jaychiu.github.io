@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>目录页</title>
+        <link rel="stylesheet" href="css/directoryPage.css" />
+        <link rel="shortcut icon" href="favicon.ico" />
+        <script src="JavaScript/time.js" type="text/javascript" charset="UTF-8"></script>
+        <script src="JavaScript/jquery.min.js"></script>
+        <label id="timeShow"></label>
+	</head>
+	<body class="navbar" title="directoryPage.html">
+		<br />
+		<br />
+		<div class="navbarSearch">
+        	<form method="get" action="http://www.bsfit.com.cn" target="main">
+        		<fieldset>
+        			<input type="hidden" name="navbarSearch" value="0">搜索笔记：</input>
+        			<input type="text" name="cate" size="18" class="navbarSearchItem"></input>
+        		</fieldset>
+        	</form>
+        </div>
+		<div class="left-column">
+			<div class="left-tab-1">
+				<b class="title" title="css:title">#全部笔记：</b>
+			</div>
+			<div class="left-tab-2" id="left-tab-2">
+				<div class="design" id="cate1">
+					<div class="design-name" >
+						<script>
+							$(document).ready(function(){
+								$("#fold-1").click(function() {
+									$("#cate-fold-1").toggle();
+								});
+							});
+						</script>
+						<b>一、</b><a href="mainContentPage.html#firstRow" target="showPage" id="fold-1" title="Linux" >Linux</a>
+						<div class="design-name-fold" id="cate-fold-1" style="display: none;">
+							<div>
+								<a href="mainContentPage.html#linux-1" target="showPage" title="mainContentPage.html#linux-1" >1、Linux系统安装与基础命令</a><br />
+								<a href="mainContentPage.html#linux-2" target="showPage" title="mainContentPage.html#linux-2" >2、Linux系统服务安装文档</a><br />
+								<a href="mainContentPage.html#linux-3" target="showPage" title="mainContentPage.html#linux-3" >3、Linux系统服务安装包</a><br />
+								<a href="mainContentPage.html#linux-4" target="showPage" title="mainContentPage.html#linux-4" >4、Linux笔记</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="design" id="cate2">
+					<div class="design-name">
+						<script>
+							$(document).ready(function(){
+								$("#fold-2").click(function() {
+									$("#cate-fold-2").toggle();
+								});
+							});
+						</script>
+						    <b>二、</b><a href="mainContentPage.html#secondRow" target="showPage" id="fold-2" title="MySQL" >MySQL</a>
+						    <div class="design-name-fold" id="cate-fold-2" style="display: none;">
+								<div>
+									<a href="http://www.baidu.com" target="_blank" title="基础篇" >1、基础篇</a><br />
+									<a href="http://www.baidu.com" target="_blank" title="网络服务篇" >2、网络服务篇</a>
+								</div>
+					        </div>
+					</div>
+				</div>
+				<div class="design" id="cate3">
+					<div class="design-name">
+						<script>
+							$(document).ready(function(){
+								$("#fold-3").click(function() {
+									$("#cate-fold-3").toggle();
+								});
+							});
+						</script>
+						<b>三、</b><a href="mainContentPage.html#thirdRow" target="showPage" id="fold-3" title="Oracle" >Oracle</a>
+						<div class="design-name-fold" id="cate-fold-3" style="display: none;">
+							<div>
+								<a href="http://www.baidu.com" target="_blank" title="基础篇" >1、基础篇</a><br />
+								<a href="http://www.baidu.com" target="_blank" title="网络服务篇" >2、网络服务篇</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="design" id="cate4">
+					<div class="design-name">
+						<script>
+							$(document).ready(function(){
+								$("#fold-4").click(function() {
+									$("#cate-fold-4").toggle();
+								});
+							});
+						</script>
+							<b>四、</b><a href="mainContentPage.html#fourthRow" target="showPage" id="fold-4" title="Nagios" >Nagios</a>
+							<div class="design-name-fold" id="cate-fold-4" style="display: none;">
+							<div>
+								<a href="http://www.baidu.com" target="_blank" title="基础篇" >1、基础篇</a><br />
+								<a href="http://www.baidu.com" target="_blank" title="网络服务篇" >2、网络服务篇</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="design" id="cate5">
+							<div class="design-name">
+								<script>
+									$(document).ready(function(){
+										$("#fold-5").click(function() {
+											$("#cate-fold-5").toggle();
+										});
+									});
+								</script>
+								<b>五、</b><a href="mainContentPage.html#fifthRow" target="showPage" id="fold-5" title="Nginx" >Nginx</a>
+								<div class="design-name-fold" id="cate-fold-5" style="display: none;">
+									<div>
+										<a href="http://www.baidu.com" target="_blank" title="基础篇" >1、基础篇</a><br />
+										<a href="http://www.baidu.com" target="_blank" title="网络服务篇" >2、网络服务篇</a>
+									</div>
+								</div>
+							</div>
+						</div>
+				<div class="design" id="cate6">
+							<div class="design-name">
+								<script>
+									$(document).ready(function(){
+										$("#fold-6").click(function() {
+											$("#cate-fold-6").toggle();
+										});
+									});
+								</script>
+								<b>六、</b><a href="mainContentPage.html#sixthRow" target="showPage" id="fold-6" title="git" >GIT</a>
+								<div class="design-name-fold" id="cate-fold-6" style="display: none;">
+									<div>
+										<a href="http://www.baidu.com" target="_blank" title="基础篇" >1、基础篇</a><br />
+										<a href="http://www.baidu.com" target="_blank" title="网络服务篇" >2、网络服务篇</a>
+									</div>
+								</div>
+							</div>
+						</div>
+				<div class="design" id="cate7">
+					<div class="design-name">
+						<script>
+							$(document).ready(function(){
+								$("#fold-7").click(function() {
+									$("#cate-fold-7").toggle();
+								});
+							});
+						</script>
+							<b>七、</b><a href="mainContentPage.html#seventhRow" target="showPage" id="fold-7" title="HTML/CSS" >HTML/CSS</a>
+							<div class="design-name-fold" id="cate-fold-7" style="display: none;">
+							<div>
+								<a href="http://www.baidu.com" target="_blank" title="基础篇" >1、基础篇</a><br />
+								<a href="http://www.baidu.com" target="_blank" title="网络服务篇" >2、网络服务篇</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="design" id="cate8">
+					<div class="design-name">
+						<script>
+							$(document).ready(function(){
+								$("#fold-8").click(function() {
+									$("#cate-fold-8").toggle();
+								});
+							});
+						</script>
+							<b>八、</b><a href="mainContentPage.html#eighthRow" target="showPage" id="fold-8" title="JavaScript" >JavaScript</a>
+							<div class="design-name-fold" id="cate-fold-8" style="display: none;">
+							<div>
+								<a href="http://www.baidu.com" target="_blank" title="基础篇" >1、基础篇</a><br />
+								<a href="http://www.baidu.com" target="_blank" title="网络服务篇" >2、网络服务篇</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="design" id="cate9">
+					<div class="design-name">
+						<script>
+							$(document).ready(function(){
+								$("#fold-9").click(function() {
+									$("#cate-fold-9").toggle();
+								});
+							});
+						</script>
+							<b>九、</b><a href="mainContentPage.html#ninthRow" target="showPage" id="fold-9" title="Python" >Python</a>
+							<div class="design-name-fold" id="cate-fold-9" style="display: none;">
+							<div>
+								<a href="http://www.baidu.com" target="_blank" title="基础篇" >1、基础篇</a><br />
+								<a href="http://www.baidu.com" target="_blank" title="网络服务篇" >2、网络服务篇</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="design" id="cate10">
+					<div class="design-name">
+						<script>
+							$(document).ready(function(){
+								$("#fold-10").click(function() {
+									$("#cate-fold-10").toggle();
+								});
+							});
+						</script>
+							<b>十、</b><a href="mainContentPage.html#tenthRow" target="showPage" id="fold-10" title="PHP" >PHP</a>
+							<div class="design-name-fold" id="cate-fold-10" style="display: none;">
+							<div>
+								<a href="http://www.baidu.com" target="_blank" title="基础篇" >1、基础篇</a><br />
+								<a href="http://www.baidu.com" target="_blank" title="网络服务篇" >2、网络服务篇</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+	</body>
+</html>

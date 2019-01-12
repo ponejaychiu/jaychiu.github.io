@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html manifest="demo_html.appcache">
+	<head>
+		<meta charset="UTF-8">
+		<title>Chiu's 学习笔记-第四页</title>
+		<link rel="shortcut icon" href="favicon.ico" />
+	</head>
+	<body>
+		<h2>4、web storage一个复杂的存储网站列表的程序</h2>
+		<div style="border: 2px dashed #ccc;text-align: center;">
+			<label for="keyname">别名（key）：</label>
+			<input type="text" id="keyname" name="keyname" class="text" />
+			<br />
+			<label for="sitename">网站名：</label>
+			<input type="text" id="sitename" name="sitename" class="text" />
+			<br />
+			<label for="siteurl">网址：</label>
+			<input type="text" id="siteurl" name="siteurl" />
+			<br />
+			<input type="button" onclick="save()" value="新增记录" />
+			<hr />
+			<label for="search_phone">输入别名（key）：</label>
+			<input type="text" id="search_site" name="search_site" />
+			<input type="button" onclick="find()" value="查找网站"/>
+			<p id="find_result"><br /></p>
+		</div>
+		<br />
+	    <div id="list"></div>
+	    <script>
+	    	//保存数据;
+	    	function save()
+	    	{
+	    		var site=new Object;
+	    		site.keyname=document.getElementById("keyname").value;
+	    		site.sitename=document.getElementById("sitename").value;
+	    		site.siteurl=document.getElementById("siteurl").value;
+	    		var str=JSON.stringify(site);//将对象转换为字符
+	    		localStorage.setItem(site.keyname,str);
+	    		alert("保存成功");
+	    	}
+	    	//查找数据；
+	    	function find()
+	    	{
+	    		var search_site=document.getElementById("search_site").value;
+	    		var str=localStorage.getItem(search_site);
+	    		var find_result=document.getElementById("find_result");
+	    		var site=JSON.parse(str);
+	    		find_result.innerHTML=search_site+"网站名是："+site.sitename+",网址是："+site.siteurl;
+	    	}
+	    	//将所有存储在localstorage中的对象提取出来，并展现到页面上
+	    	function loadAll()
+	    	{
+	    		var list=document.getElementById("list");
+	    		if (localStorage.length>0)
+	    		{
+	    			var result="<table border='1'>";
+	    			result+="<tr><td>网站名</td><td>网站名</td><td>网址</td></tr>";
+	    			for(var i=0;i<localStorage.length;i++)
+	    			{
+	    				var keyname=localStorage.key(i);
+	    				var str=localStorage.getItem(keyname);
+	    				var site=JSON.parse(str);
+	    				result+="<tr><td>"+site.keyname+"</td><td>"+site.sitename+"</td><td>"+site.siteurl+"</td></tr>";
+	    			}
+	    			result+="</table>";
+	    			list.innerHTML=result;
+	    		} else{
+	    			list.innerHTML="数据为空。。。。。。";
+	    		}
+	    	}
+	    </script>
+	    <p><img src="img/linux256.png" /></p>
+	    <p>尝试打开<a href="webstorage.html" target="_blank">这个页面</a>，在离线状态下也可以访问。</p>
+	    <!--<h1>web sql数据库</h1>	
+	    <h2>1、打开数据库并查询、插入、读取数据</h2>
+	    <script type="text/javascript" >
+	    	var db=openDatabase('mydb','1.0','Test DB','2*1024*1024');
+            var msg;
+            db.transaction(function(tx)
+            {
+	            tx.executeSql('create table if not exists logs (id unique,log)');
+	            tx.executeSql('insert into logs (id,log) values (1,"百度")');
+	            tx.executeSql('insert into logs (id.log) values (2,"www.baidu.com:")');
+	            msg='<p>数据表已创建，且插入了两条数据。</p>';
+	            document.querySelector('#status').innerHTML=msg;
+            })
+            db.transaction(function(tx)
+            {
+	            tx.executeSql('select * from logs',[],function(tx,results)
+	        {
+		            var len=results.rows.length,i;
+		            msg="<p>查询记录条数："+len+"</p>";
+		            document.querySelector('#status').innerHTML+=msg;
+		            for (i=0;i<len;i++)
+		            {
+			            msg="<p><b>"+results.rows.item(i).log+"</b></p>";
+			            document.querySelector('#status').innerHTML+=msg;
+		            }
+	        },null);
+            });
+	    </script>-->
+	    <h1>web worker</h1>
+	    <p>计数：<output id="result3"></output></p>
+	    <button onclick="startWorker()">开始计数</button>
+	    <button onclick="stopWorker()">停止计数</button>
+	    <script>
+	    	var w;
+	    	function startWorker()
+	    	{
+	    		if (typeof(Worker)!=="undefined")
+	    		{
+                    if(typeof(w)=="undefined")
+                    {
+                    	w=new Worker("JavaScript/demo_worker.js");
+                    }
+                    w.onmessage=function(event)
+                    {
+                    	document.getElementById("result3").innerHTML=event.data;
+                    }
+	    		} else
+	    		{
+	    			document.getElementById("result3").innerHTML="抱歉，您的浏览器不支持web workers。。。"
+	    		}
+	    	}
+	    	function stopWorker()
+	    	{
+	    		w.terminate();
+	    		w=undefined;
+	    	}
+	    </script>
+	    <h1>获取服务端更新数据（时间）</h1>
+	    <script>
+	    	if (typeof(EventSource)!=="undefined")
+	    	{
+	    		var source=new EventSource("demo-form.php");
+	    		source.onmessage=function(event)
+	    		{
+	    			document.getElementById("result4").innerHTML+=event.data+"<br />";
+	    		}
+	    	} 
+	    	else
+	    	{
+	    		document.getElementById("result4").innerHTML="抱歉，您的浏览器不支持server-sent事件";
+	    	}
+	    </script>
+	    <h1>websocket实例</h1>
+	    <a href="websocket.html" target="_blank">
+	    	<button type="button" value="nextpage">进入下一个页面</button>
+	    </a>
+	    <hr />
+        <a href="index.html" target="_blank"><button>返回首页</button></a>
+	    <a href="draw_drop.html" target="_blank"><button>上一页</button></a>
+        <a href="websocket.html" target="_blank"><button>下一页</button></a>
+	</body>
+</html>

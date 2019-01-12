@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Chiu's 学习笔记-第三页</title>
+		<link rel="shortcut icon" href="favicon.ico" />
+        <script src="JavaScript/welcome.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<h1>拖动以下图片至旁边方框内：<a href="index.html" target="_self"><button type="button">返回首页</button></a></h1>
+		<style type="text/css">
+			#div1
+			{position: relative;left: 710px;float: left;width: 310px;height: 310px;margin: 10px;padding: 10px;border: 5px solid red;}
+			#div2
+			{position: absolute;left: 310px;float: left;width: 310px;height: 310px;margin: 10px;padding: 10px;border: 5px solid red;}
+			#drag1
+			{position: absolute;float: left;}
+		</style>
+		<script>
+			function allowDrop(ev)
+			{
+				event.preventDefault();
+			}
+			function drag(ev)
+			{
+				event.dataTransfer.setData("",ev.target.id);
+			}
+			function drop(ev)
+			{
+				event.preventDefault();
+				var data=ev.dataTransfer.getData("");
+				event.target.appendChild(document.getElementById(data));
+			}
+		</script>
+		<img id="drag1" src="img/linux256.png" draggable="true" ondragstart="drag(event)" width="310" height="310" />
+		<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<div style="clear: both;"></div>
+		<hr />
+		<h1>视频播放功能：</h1>
+		<div style="text-align: center;">
+			<button onclick="playPause()">播放/暂停</button>
+			<button onclick="makeBig()">放大</button>
+			<button onclick="makeSmall()">缩小</button>
+			<button onclick="makeNormal()">普通</button>
+			<br />
+			<video id="video1" width="400" height="284">
+				<source src="video/mov_bbb.mp4" type="video/mp4"></source>
+				<source src="video/mov_bbb.ogg" type="video/ogg">您的浏览器不支持H5video标签.</source>
+				<track src="" />
+			</video>
+		</div>
+		<script>
+			var myVideo=document.getElementById("video1");
+			function playPause()
+			{
+				if (myVideo.paused)
+				myVideo.play();
+				else
+				myVideo.pause();
+			}
+			function makeBig()
+			{
+				myVideo.width=600;
+			}
+			function makeSmall()
+			{
+				myVideo.width=300;
+			}
+			function makeNormal()
+			{
+				myVideo.width=400;
+			}
+		</script>
+		<hr />
+	    <h1>表单元素：</h1>
+	    <h2>color:</h2>
+	    <form action="demo-form.php">
+	    	选择你喜欢的颜色：<input type="color" name="favcolor" /><br />
+	    	<input type="submit" />
+	    </form>
+	    <h2>date:</h2>
+	    <form action="demo-form.php">
+	    	请输入你的生日：<input type="date" name="date" /><br />
+	    	<input type="submit" />
+	    </form>
+	    <h2>email:</h2>
+	    <form action="demo-form.php">
+	    	请输入你的邮箱地址：<input type="email" name="mail" /><br />
+	    	<input type="submit" />
+	    </form>
+	    <h2>datalist:</h2>
+	    <form action="demo-form.php">
+	    	请选择车牌：<input list="cards" name="车牌" />
+	    	<datalist id="cards">
+	    		<option value="12345"></option>
+	    		<option value="54321"></option>
+	    		<option value="22223"></option>
+	    	</datalist>
+	    	<input type="submit" />
+	    </form>
+	    <h2>keygen:</h2>
+	    <form action="demo-form.php" method="get">
+	    	用户名：<input type="text" name="user_name" />
+	    	加密<keygen name="security" />
+	    	<input type="submit" value="呵呵"/>
+	    </form>
+	    <h2>output:</h2>
+	    <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+	    	<input type="range" id="a" value="200" min="0" max="1000"/>1000+
+	    	<input type="number" id="b" value="500" />=
+	    	<output name="x" for="a b"></output>
+	    </form>
+	    <h1>表单属性：</h1>
+	    <h2>autocomplete</h2>
+	    <form action="demo-form.php" autocomplete="on">
+	    	姓：<input type="text" name="xing" /><br />
+	    	名：<input type="text" name="ming" /><br />
+	    	email:<input type="email" name="email" autocomplete="on" /><br />
+	    	<input type="submit" />
+	    </form>
+	    <h1>语义元素</h1>
+	    <h2>figure和figcaption</h2>
+	    <figure>
+	    	<img src="img/linux256.png" alt="liunx图标" title="Linux图标"/>
+	    	<figcaption>这是Linux系统的图标</figcaption>
+	    </figure>
+	    <h1>H5 web存储</h1>
+	    <h2>1、web存储localStorage</h2>
+	    <!--<div id="result1"></div>
+	    <script>
+	    	if (typeof(Storage)!=="undefined")
+	    	{
+	    	  localStorage.siteName="菜鸟教程";
+	    	  document.getElementById("result1").innerHTML="网站名："+localStorage.siteName;
+	    	} 
+	    	else
+	    	{
+	    	  document.getElementById("result1").innerHTML="对不起，您的浏览器不支持web存储。"
+	    	}
+	    </script>-->
+	    <script>
+	    	function clickCounter1()
+	    	{
+	    		if (typeof(Storage)!=="undefined") 
+	    		{
+	    		    if (localStorage.clickcount)
+	    		    {
+	    		        localStorage.clickcount=Number(localStorage.clickcount)+1;	
+	    		    } 
+	    		    else
+	    		    {
+	    		        localStorage.clickcount=1;  	
+	    		    }	
+	    		        document.getElementById("result1").innerHTML="您已经点击了按钮"+localStorage.clickcount+"次";
+	    		} 
+	    		else
+	    		{
+	    			document.getElementById("result1").innerHTML="对不起，您的浏览器不支持web存储。";
+	    		}
+	    	}
+	    </script>
+	    <p><button onclick="clickCounter1()" type="button">点我呀！</button></p>
+	    <div id="result1"></div>
+	    <p>点击该按钮查看计数器的增加。</p>
+	    <p>关闭浏览器选项卡(或窗口),重新打开此页面,计数器将继续计数(不是重置)。</p>
+	    <h2>2、web存储sessionStorage</h2>
+	    <script>
+	    	function clickCounter2()
+	    	{
+	    		if (typeof(Storage)!=="undefined") 
+	    		{
+	    			if (sessionStorage.clickcount) 
+	    			{
+	    				sessionStorage.clickcount=Number(sessionStorage.clickcount)+1;
+	    			} 
+	    			else
+	    			{
+	    				sessionStorage.clickcount=1;
+	    			}
+	    			document.getElementById("result2").innerHTML="在这个会话中您已经点击了该按钮"+sessionStorage.clickcount+"次";
+	    		} 
+	    		else
+	    		{
+	    			document.getElementById("result2").innerHTML="抱歉，您的浏览器不支持web存储";
+	    		}
+	    	}
+	    </script>
+	    <p><button onclick="clickCounter2()" type="button">点我啊！</button></p>
+	    <div id="result2"></div>
+	    <p>点击该按钮查看计数器的增加。</p>
+	    <p>关闭浏览器选项卡(或窗口),重新打开此页面,计数器将重新计数(会重置)。</p>
+	    <h2>3、web storage一个简单的存储网站列表的程序</h2>
+	    <div style="border: 2px dashed #ccc;text-align: center;">
+	    	<label for="sitename">网站名（key）：</label>
+	    	<input type="text" id="sitename" name="sitename" class="text" />
+	    	<br />
+	    	<label for="siteurl">网址（value）：</label>
+	    	<input type="text" id="siteurl" name="siteurl" />
+	    	<br />
+	    	<input type="button" onclick="save()" value="新增记录" />
+	    	<hr />
+	    	<label for="search_phone">输入网站名：</label>
+	    	<input type="text" id="search_site" name="search_site" />
+	    	<br />
+	    	<input type="button" onclick="find()" value="查找网站" />
+	    	<p id="find_result"><br /></p>
+	    </div>
+	    <br />
+	    <div id="list"></div>
+	    <script>
+	    	//载入所有存储在localstorage的数据；
+	    	loadAll();
+	    	//保存数据;
+	    	function save()
+	    	{
+	    		var siteurl=document.getElementById("siteurl").value;
+	    		var sitename=document.getElementById("sitename").value;
+	    		localStorage.setItem(sitename,siteurl);
+	    		alert("添加成功");
+	    	}
+	    	//查找数据；
+	    	function find()
+	    	{
+	    		var search_site=document.getElementById("search_site").value;
+	    		var sitename=localStorage.getItem(search_site);
+	    		var find_result=document.getElementById("find_result");
+	    		find_result.innerHTML=search_site+"的网址是："+sitename;
+	    	}
+	    	//将所有存储在localstorage中的对象提取出来，并展现到页面上
+	    	function loadAll()
+	    	{
+	    		var list=document.getElementById("list");
+	    		if (localStorage.length>0)
+	    		{
+	    			var result="<table border='1'>";
+	    			result+="<tr><td>网站名</td><td>网址</td></tr>";
+	    			for(var i=0;i<localStorage.length;i++)
+	    			{
+	    				var sitename=localStorage.key(i);
+	    				var siteurl=localStorage.getItem(sitename);
+	    				result+="<tr><td>"+sitename+"</td><td>"+siteurl+"</td></tr>";
+	    			}
+	    			result+="</table>";
+	    			list.innerHTML=result;
+	    		} else{
+	    			list.innerHTML="数据为空。。。。。。";
+	    		}
+	    	}
+	    </script>
+	    <h2>4、web storage一个复杂的存储网站列表的程序</h2>
+	    <a href="webstorage.html" target="_blank">
+	    	<button type="button" value="nextpage">进入下一个页面</button>
+	    </a>
+	    <hr />
+        <a href="index.html" target="_blank" id="draw_drop"><button>返回首页</button></a>
+	    <a href="chiu-test.html" target="_blank"><button>上一页</button></a>
+        <a href="webstorage.html" target="_blank"><button>下一页</button></a>
+	</body>
+</html>

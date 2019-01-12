@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Chiu's 学习笔记-第六页</title>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="css/table1.css" />
+		<script src="JavaScript/student.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<hr /><br />
+		<div class="bootbar">
+			<span class="lastpage">
+			<a href="websocket.html" target="_blank" ><button class="pagebutton">上一页</button></a>
+		</span>
+			<span class="homepage">
+			<a href="index.html" target="_blank" ><button class="pagebutton">返回首页</button></a>
+        </span>
+			<span class="nextpage">
+        	<a href="break_continue.html" target="_blank" ><button class="pagebutton">下一页</button></a>
+        </span>
+		</div>
+		<hr />
+		<h3>11、break&&continue</h3>
+		<p>点击下面的按钮测试break和continue的区别</p>
+		<h4>11.1、break（不带标签引用）时代码会跳出循环，只能在循环或者switch中使用</h4>
+		<button type="button" onclick="myBreak()">break点我！</button>
+		<p id="demo11.1"></p>
+		<script>
+			function myBreak() {
+				var x = "",
+					i = 0;
+				for(i = 0; i < 10; i++) {
+					if(i == 5) {
+						break;
+					}
+					x = x + "该数字为" + i + "<br/>";
+				}
+				document.getElementById("demo11.1").innerHTML = x;
+			}
+		</script>
+		<h4>11.2、continue（带或不带标签引用）时代码会跳出循环后，继续执行该循环之后的代码（如果有的话）,且只能用在循环中</h4>
+		<button type="button" onclick="myContinue()">continue点我！</button>
+		<p id="demo11.2"></p>
+		<script>
+			function myContinue() {
+				var x = "",
+					i = 0;
+				for(i = 0; i < 10; i++) {
+					if(i == 5) {
+						continue;
+					}
+					x = x + "该数字为" + i + "<br/>";
+				}
+				document.getElementById("demo11.2").innerHTML = x;
+			}
+		</script>
+		<h4>11.3、通过标签引用，break 语句可用于跳出任何 JavaScript 代码块</h4>
+		<script>
+			cars = ["BMW", "Volvo", "Saab", "Ford"];
+			i: {
+				document.write(cars[0] + "<br>");
+				document.write(cars[1] + "<br>");
+				break i;
+				document.write(cars[2] + "<br>");
+				document.write(cars[3] + "<br>");
+				document.write(cars[4] + "<br>");
+				document.write(cars[5] + "<br>");
+			}
+		</script>
+		<h3>12、正则表达式</h3>
+		<h4>验证学生信息：</h4>
+		<form name="myform" action="" onsubmit="return fun1()">
+			<div align="center">
+				<table border="1" width="60%">
+					<tr>
+						<td colspan=2 align=center>
+							<h3>学生信息管理</td>
+	</tr>
+	<tr>
+		<td height="39" width="463" bgcolor="#006699">
+		<font color="#FFFF00">
+		学生编号：<input type="text" maxlength=8 id="sno" value="请输入8位数字" 
+			onFocus="if(value==defaultValue){value='';this.style.color='#000'}" 
+			onBlur="if(!value){value=defaultValue;this.style.color='#999'}"
+			style="color:#999999" ></td>
+        <td height="39" width="463" bgcolor="#006699">
+        <font color="#FFFF00">
+       学生名字：<input type="text" maxlength=10 id="username" value="请输入中文"
+       	    onFocus="if(value==defaultValue){value='';this.style.color='#000'}" 
+			onBlur="if(!value){value=defaultValue;this.style.color='#999'}"
+			style="color:#999999" ></td>
+        <tr>
+		<td height="39" width="463" bgcolor="#006699">
+		<font color="#FFFF00">
+		邮箱地址：<input type="text" maxlength=20 id="email" value="请输入邮箱地址"
+			onFocus="if(value==defaultValue){value='';this.style.color='#000'}" 
+			onBlur="if(!value){value=defaultValue;this.style.color='#999'}"
+			style="color:#999999"></td>
+       <td height="39" width="463" bgcolor="#006699">
+        <font color="#FFFF00">
+       电话号码：<input type="text" maxlength=11 id="tel" value="请输入11位手机号码"
+       	onFocus="if(value==defaultValue){value='';this.style.color='#000'}" 
+			onBlur="if(!value){value=defaultValue;this.style.color='#999'}"
+			style="color:#999999" ></td>
+		<tr><td  height="53" width="985" bgcolor="#006699" colspan="2" align=center>
+		<input type="submit" value="提交信息">
+
+		</td>
+	</tr>
+    </table></div>
+        <h3>13、JavaScript错误输出</h3>
+							<input type="button" value="查看消息" onclick="message()" />
+							<script>
+								var txt = "";
+
+								function message() {
+									try {
+										write("哈哈哈哈！！！")
+									} catch(err) {
+										txt = "本页有一个错误。\n\n";
+										txt += "错误描述：" + err.message + "\n\n";
+										txt += "点击确定继续。\n\n";
+										alert(txt);
+									}
+								}
+							</script>
+							<h4>请输入一个5——10之间的数字</h4>
+							<input id="demo13" type="text" />
+							<button type="button" onclick="myerr()">测试输入</button>
+							<p id="message"></p>
+							<script>
+								"use strict";
+
+								function myerr() {
+									var message, x;
+									message = document.getElementById("message");
+									message.innerHTML = "";
+									x = document.getElementById("demo13").value;
+									try {
+										if(x == "") throw "值为空";
+										if(isNaN(x)) throw "不是数字";
+										x = Number(x);
+										if(x < 5) throw "太小";
+										if(x > 10) throw "太大";
+									} catch(err) {
+										message.innerHTML = "错误: " + err;
+									}
+								}
+							</script>
+							<h3>14、你的屏幕信息:</h3>
+							<script>
+								document.write("总宽度/高度: ");
+								document.write(screen.width + "*" + screen.height);
+								document.write("<br>");
+								document.write("可以宽度/高度: ");
+								document.write(screen.availWidth + "*" + screen.availHeight);
+								document.write("<br>");
+								document.write("颜色深度: ");
+								document.write(screen.colorDepth);
+								document.write("<br>");
+								document.write("颜色分辨率: ");
+								document.write(screen.pixelDepth);
+							</script><br /><br />
+							<input type="button" value="返回" onclick="goBack()">
+							<input type="button" value="前进" onclick="goForward()">
+	</body>
+
+</html>

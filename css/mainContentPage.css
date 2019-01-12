@@ -1,0 +1,15 @@
+.mainContentPage{border: 1px solid black;margin: 10px;padding: 10px;}
+.main-content{background-color: whitesmoke;border: 1px solid red;margin: 10px;padding: 10px;}
+.firstRow,.secondRow,.thirdRow,.fourthRow,.fifthRow,
+.sixthRow,.seventhRow,.eighthRow,.ninthRow,.tenthRow{border: 1px solid black;margin: 10px;padding: 10px;}
+.firstRowStyle,.secondRowStyle,.thirdRowStyle,.fourthRowStyle,.fifthRowStyle,
+.sixthRowStyle,.seventhRowStyle,.eighthRowStyle,.ninthRowStyle,.tenthRowStyle{display: inline-block;}
+.linux{border: 1px solid red;margin: 10px;padding: 10px;}
+.linuxMenu,.linuxList,.linuxListName{margin-left: 30px;}
+.mysql{border: 1px solid red;margin: 10px;padding: 10px;}
+.oracle{border: 1px solid red;margin: 10px;padding: 10px;}
+.nagios,.nginx,.git{border: 1px solid red;margin: 10px;padding: 10px;}
+.htmlcss,.javascript,.python{border: 1px solid red;margin: 10px;padding: 10px;}
+.php{border: 1px solid red;margin: 10px;padding: 10px;}
+.linuxTitle{border: 1px solid black;}
+.linuxMenu{border: 1px solid blue;}

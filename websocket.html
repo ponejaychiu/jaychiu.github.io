@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Chiu's 学习笔记-第五页</title>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="css/table1.css" />
+	</head>
+	<body>
+		<h1>一、websocket实例</h1>
+		<script type="text/javascript">
+         function WebSocketTest()
+         {
+            if ("WebSocket" in window)
+            {
+               alert("您的浏览器支持 WebSocket!");
+               
+               // 打开一个 web socket
+               var ws = new WebSocket("ws://localhost:9998/echo");
+				
+               ws.onopen = function()
+               {
+                  // Web Socket 已连接上，使用 send() 方法发送数据
+                  ws.send("发送数据");
+                  alert("数据发送中...");
+               };
+				
+               ws.onmessage = function (evt) 
+               { 
+                  var received_msg = evt.data;
+                  alert("数据已接收...");
+               };
+				
+               ws.onclose = function()
+               { 
+                  // 关闭 websocket
+                  alert("连接已关闭..."); 
+               };
+            }
+            
+            else
+            {
+               // 浏览器不支持 WebSocket
+               alert("您的浏览器不支持 WebSocket!");
+            }
+         }
+     </script>	
+   </head>
+   <body>
+      <div id="sse">
+         <a href="javascript:WebSocketTest()">运行 WebSocket</a>
+         <a href="http://www.runoob.com/html/html5-websocket.html">如有任何疑问请点击这里！</a>
+      </div>
+      <embed src="img/linux256.png"></embed>
+      <h1>开始学习JavaScript</h1>
+      <h2>一、JavaScript小程序</h2>
+      <h3>1、显示时间：</h3>
+      <script>
+      	function displayDate(){
+      		document.getElementById("demo").innerHTML=Date();
+      	}
+      </script>
+      <p id="demo">这是显示时间的地方</p>
+      <button type="button" onclick="displayDate()">显示时间</button>
+      <button type="button" onclick="alert('欢迎访问我的页面！！！')">点击这里！</button>
+      <script>
+      	function myFunction(){
+      		x=document.getElementById("demo");//找到元素
+      		x.innerHTML="Hello，看到JavaScript了吧！"//改变内容
+      		x.style.color="blue"//改变样式
+      	}
+      </script>
+      <button type="button" onclick="myFunction()">继续点击！</button>
+      <h3>2、点亮灯泡：</h3>
+      <script>
+      	function changeImage(){
+      		Element=document.getElementById('myimage')
+      		if (Element.src.match("bulbon"))
+      		{
+      			Element.src="img/pic_bulboff.gif"
+      		} 
+      		else
+      		{
+      			Element.src="img/pic_bulbon.gif"
+      		}
+      	}
+      </script>
+      <img id="myimage" onclick="changeImage()" src="img/pic_bulboff.gif" 
+      	width="100" height="180"/>
+      <p>点击灯泡就可以打开或者关闭</p>
+      <h3>3、用JavaScript验证是否为数字：</h3>
+      <input id="demo2" type="text" />
+      <script>
+      	function myFunction2(){
+      		var x=document.getElementById("demo2").value;
+      		if (x==""||isNaN(x))
+      		{
+      			alert("不是数字")
+      		}
+      	}
+      </script>
+      <button type="button" onclick="myFunction2()">验证是否为数字</button><br />
+      <!--<script>
+      	window.alert("欢迎访问！！！")
+      	document.write(Date())
+      	a = 5
+      	b = 9
+      	c = a + b
+      	console.log(c)
+      </script>-->
+      <h3>4、用HTML和JavaScript写一个简单的计算器</h3>
+      <div class="center"><p>简单计算器：</p>
+      <script type="text/javascript" src="JavaScript/jisuanqi.js"></script>
+      <table border="5" style="position: center;" >
+      	<tr>
+      		<td>第一个数：</td>
+      		<td><input type="text" id="first" /></td>
+      	</tr>
+      	<tr>
+      		<td>第二个数：</td>
+      		<td><input type="text" id="second" /></td>
+      	</tr>
+      	<tr>
+      		<td colspan="2">
+      			&nbsp;
+      			<button style="width: inherit;" onclick="add()">+</button>
+      			&nbsp;
+      			<button style="width: inherit;" onclick="subtract()">-</button>
+      			&nbsp;
+      			<button style="width: inherit;" onclick="ride()">*</button>
+      			&nbsp;
+      			<button style="width: inherit;" onclick="devide()">/</button>
+      		</td>
+      	</tr>
+      	<tr>
+      		<td colspan="2" rowspan="2">
+      			<p id="result4"></p>
+      		</td>
+      	</tr>
+      </table></div>
+      <br />
+      <hr />
+      <h3>5、全选与取消全选</h3>
+      <script type="text/javascript" src="JavaScript/checkbox.js"></script>
+      <div class="center">
+      	车子:<input type="checkbox" name="checkbox" value="1" /><br />
+      	房子:<input type="checkbox" name="checkbox" value="2" /><br />
+      	票子:<input type="checkbox" name="checkbox" value="3" /><br /><br />
+      	<button type="button" onclick="checkboxed('checkbox')">全选</button>
+      	<button type="button" onclick="uncheckboxed('checkbox')">取消全选</button>
+      </div>
+      <hr />
+      <h3>6、根据条件判断返回的值</h3>
+      <div class="center">
+      	<p>点击按钮检测年龄：</p>
+      	年龄：<input type="text" id="age" />
+      	<p id="demo6">是否到达投票年龄？</p>
+      	<button type="button" onclick="testAge()">检测</button>
+      	<script>
+      		function testAge(){
+      			var age,voteable
+      			age=document.getElementById("age").value
+      			voteable=(age<18)?"年龄太小":"年龄已达到"
+      			document.getElementById("demo6").innerHTML=voteable
+      		}
+      	</script>
+      </div>
+      <hr />
+      <h3>7、if、if...else、if...else if...else、switch判断语句</h3>
+      <h4>7.1、if、if...else判断语句</h4>
+      <div class="center">
+      	<p id="demo7.1">如果时间是20点之前则返回“白天好！！！”，否则返回“晚上好！！！”。</p>
+      	<button type="button" onclick="testIf()">点击这里</button>
+      	<script>
+      		function testIf(){
+      			var x=""
+      			var time=new Date().getHours()
+      			if (time<20){
+      				x="白天好！！！"
+      			}
+      			else{
+      				x="晚上好！！！"
+      			}
+      			document.getElementById("demo7.1").innerHTML=x
+      		}
+      	</script>
+      </div>
+      <h4>7.2、if...else if...else判断语句</h4>
+        <p id="demo7.2">如果时间小于 09:00，则生成问候 "Good morning"，如果时间大于 09:00 小于 20:00，
+      	则生成问候 "Good day"，否则生成问候 "Good evening":</p>
+        <button type="button" onclick="testIfElse()">点击这里</button>
+        <script>
+        	function testIfElse(){
+        		var x=""
+        		var time=new Date().getHours()
+        		if (time<9) {
+        			x="早上好"
+        		} 
+        		else if(time>=9 && time<20){
+        			x="白天好"
+        		}
+        		else{
+        			x="晚上好"
+        		}
+        		document.getElementById("demo7.2").innerHTML=x
+        	}
+        </script>
+      <hr />
+      <h4>7.3、switch判断语句</h4>
+      <div class="center">
+      	<p id="demo7.3">点击按钮判断今天星期几</p>
+      	<button type="button" onclick="myWeek()">点我判断！</button>
+      	<script>
+      		function myWeek(){
+      			var x;
+      			var d=new Date().getDay();
+      			switch (d){
+      				case 0:x="今天星期日";
+      				break;
+      				case 1:x="今天星期一";
+      				break;
+      				case 2:x="今天星期二";
+      				break;
+      				case 3:x="今天星期三";
+      				break;
+      				case 4:x="今天星期四";
+      				break;
+      				/*case 5:x="今天星期五";
+      				break;*/
+      				case 6:x="今天星期六";
+      				break;
+      				default:x="期待周末。。。";
+      			}
+      			document.getElementById("demo7.3").innerHTML=x;
+      		}
+      	</script>
+      </div>
+      <h3>8、随机链接</h3>
+      <p id="demo8.1">这里会随机(概率25%)出现一个网页连接！</p>
+      <button type="button" onclick="testRandom()">请选择！</button>
+      <script>
+      	function testRandom(){
+      		var r=Math.random()
+      		var x=document.getElementById("demo8.1")
+      		if (r<0.25) {
+      			x.innerHTML="<a href='webstorage.html'>第四页</a>"
+      		} 
+      		else if (r>=0.25 && r<0.5) {
+      			x.innerHTML="<a href='draw_drop.html'>第三页</a>"
+      		} 
+      		else if (r>=0.5 && r<0.75){
+       			x.innerHTML="<a href='chiu-test.html'>第二页</a>"
+      		}
+      		else{
+      			x.innerHTML="<a href='index.html'>首页</a>"
+      		}
+      	}
+      </script><br />
+      <p id="demo8.2">生成一个0到1的随机数</p>
+      <button type="button" onclick="testRandomMath1()">点我!</button>
+      <script>
+        function testRandomMath1(){
+            document.getElementById("demo8.2").innerHTML=Math.random()
+       	}
+      </script><br />
+      <p id="demo8.3">生成一个1到100的随机数</p>
+      <button type="button" onclick="testRandomMath2()">点我！</button>
+      <script>
+      	function testRandomMath2(){
+      		document.getElementById("demo8.3").innerHTML=Math.floor(Math.random()*100+1)
+      	}
+      </script>
+      <hr />
+      <h3>9、for循环语句</h3>
+      <h4>9.1、普通循环1</h4>
+      <script>
+      	var cars=["BMW","Volvo","Saab","Ford","Audi"]
+      	for (var i=0;i<cars.length;i++) {
+      		document.write(cars[i]+"<br />")
+      	}
+      </script>
+      <h4>9.2、普通循环2</h4>
+      <p>点击按钮会生成10行数据</p>
+      <button type="button" onclick="myFor2()">点我</button>
+      <p id="demo9.2"></p>
+      <script>
+      	function myFor2(){
+      		var x="";
+      	    for (var i=0;i<10;i++) {
+      	    	x=x+"该数字为"+i+"<br />"
+      	    }
+      	    document.getElementById("demo9.2").innerHTML=x;
+      	}
+      </script>
+      <h4>9.3、普通循环3</h4>
+      <p>点击按钮会生成9行数据</p>
+      <button type="button" onclick="myfor3()">点我</button>
+      <p id="demo9.3"></p>
+      <script>
+      	function myfor3(){
+      		var i=1;
+      		var x="";
+      		for (;i<10;i++) {
+      			x=x+"改数字为"+i+"<br />";
+      		}
+      		document.getElementById("demo9.3").innerHTML=x;
+      	}
+      </script>
+      <h4>9.4、For/In循环</h4>
+      <p>点击按钮，循环遍历对象“person”属性</p>
+      <button type="button" onclick="myFor4()">点我</button>
+      <p id="demo9.4"></p>
+      <script>
+      	function myFor4(){
+      		var x;
+      		var txt="";
+      		var person={name1:"111",name2:"222",name3:"333"};
+      		for (x in person){
+      			txt=txt+person[x]+"<br />";
+      		}
+      		document.getElementById("demo9.4").innerHTML=txt;
+      	}
+      </script>
+      <hr />
+      <h3>10、while循环</h3>
+      <h4>10.1、while普通循环</h4>
+      <p>点击按钮会生成10行数据</p>
+      <button type="button" onclick="myWhile1()">点击这里</button>
+      <p id="demo10.1"></p>
+      <script>
+      	function myWhile1(){
+      		var x="";
+      		var i=0;
+      		while (i<10){
+      			x=x+"该数字为"+i+"<br />";
+      			i++;
+      		}
+      		document.getElementById("demo10.1").innerHTML=x;
+      	}
+      </script>
+      <h4>10.2、do/while循环（先执行一遍代码，再去检查while条件，所以至少会执行一遍代码）</h4>
+      <p>点击按钮会生成10行数据</p>
+      <button type="button" onclick="myWhile2()">点击这里</button>
+      <p id="demo10.2"></p>
+      <script>
+      	function myWhile2(){
+      		var x="";
+      		var i=0;
+      		do{
+      			x=x+"该数字为"+i+"<br />";
+      			i++;
+      		}
+      		while (i<10);
+      		document.getElementById("demo10.2").innerHTML=x;
+      	}
+      </script>
+      <hr />
+      <a href="index.html" target="_blank"><button>返回首页</button></a>
+      <a href="webstorage.html" target="_blank"><button>上一页</button></a>
+      <a href="break_continue.html" target="_blank"><button>下一页</button></a>
+	</body>
+</html>
