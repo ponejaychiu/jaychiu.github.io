@@ -18,7 +18,8 @@ body {
   margin: 0;
   /*设置字体格式*/
   /*font-family: "仿宋";*/
-  font-family: "Microsoft YaHei", "MicrosoftJhengHei", STHeiti, MingLiu;
+  /*font-family: "Microsoft YaHei", "MicrosoftJhengHei", STHeiti, MingLiu;*/
+  font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
 }
 h1 {
   /*背景不平铺*/
@@ -37,6 +38,23 @@ h2 {
   line-height: 18px;
   font-weight: normal;
   text-shadow: 1px 1px 4px rgba(4, 4, 4, 0.9);
+}
+a{
+  color: yellow;
+  text-decoration: none;
+  font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+}
+.copyright{
+  /*background-color: #1353a3;*/
+  background-size: cover;
+  color: red;
+  width: 100%;
+  height: 70px;
+  margin-left: 400px;
+  position: absolute;
+  bottom: -300px;
+  font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+  text-shadow: 1px 1px 4px rgba(4, 4, 4, 0.9)
 }
 /*.logo {*/
   /*left: 50px;*/
